@@ -1,0 +1,65 @@
+*
+    margin: 0
+    padding: 0
+
+body
+    background: #161616
+    font: 13px/16px Inconsolata, monospace
+    color: #fff
+
+a
+    color: #3498DB
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+#bar
+    background: #111
+    border-bottom: 2px solid #222
+    #filter
+        outline: none
+        border: none
+        background: none
+        font: inherit
+        padding: 10px
+        font-weight: bold
+        color: #555
+
+.log
+    border-bottom: 1px solid #222
+    position: relative
+
+    .desc
+        padding: 10px
+        background: #222
+
+    .time
+        position: absolute
+        top: 10px
+        right: 10px
+        color: #555
+
+    .tag
+        background: #444
+        border-radius: 2px
+        font-weight: bold
+        padding: 3px 5px
+
+    &.s .tag
+        background: #258a4e
+    &.i .tag
+        background: #2b4369
+    &.e .tag
+        background: #941c1c
+    &.w .tag
+        background: #b98b13
+
+    .summary
+        margin-left: 10px
+        color: #999
+
+    .data
+        display: none
+        background: #111
+        padding: 10px
+
