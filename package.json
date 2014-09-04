@@ -1,0 +1,17 @@
+{
+    "name": "somata-logger",
+    "version": "0.0.1",
+    "description": "shortcut for logging to a local logger service",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/prontotype-us/somata-logger.git"
+    },
+    "author": {
+        "name": "Prontotype",
+        "url": "http://prontotype.us/"
+    },
+    "keywords": [
+        "somata",
+        "logger"
+    ]
+}
