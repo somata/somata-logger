@@ -4,6 +4,8 @@ log = somata.helpers.log
 log_client = new somata.Client
 logger_log = log_client.remote.bind log_client, 'logger', 'log'
 
+joinTag = (T, t) -> "#{ T }.#{ t }"
+
 module.exports = slog = ->
 
     # Parse arguments
@@ -13,6 +15,8 @@ module.exports = slog = ->
         [t, s, d] = arguments
     else if arguments.length == 4
         [k, t, s, d] = arguments
+
+    t = joinTag(slog.TAG, t) if slog.TAG?
 
     # Log to console
     (if k? then log[k] else log) "[#{ t }] #{ s }"
@@ -24,10 +28,16 @@ module.exports = slog = ->
         kind: k
         data: d
 
+args3 = (_args) ->
+    args = Array::slice.call(_args, 0)
+    while args.length < 3
+        args.push null
+    return args
+
 # Kind shortcuts
-slog.w = -> slog 'w', arguments...
-slog.i = -> slog 'i', arguments...
-slog.e = -> slog 'e', arguments...
-slog.d = -> slog 'd', arguments...
-slog.s = -> slog 's', arguments...
+slog.w = -> slog 'w', args3(arguments)...
+slog.i = -> slog 'i', args3(arguments)...
+slog.e = -> slog 'e', args3(arguments)...
+slog.d = -> slog 'd', args3(arguments)...
+slog.s = -> slog 's', args3(arguments)...
 
